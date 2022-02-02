@@ -1,6 +1,10 @@
+{% extends "index.html" %}
+
+{% block content %}
 <h1>Goals</h1>
 <ul>
     {% for goal in goal_list %}
         <li><a href="/goals/{{ goal.id }}/">{{ goal.title }}</a></li>
     {% endfor %}
 </ul>
+{% endblock %}
