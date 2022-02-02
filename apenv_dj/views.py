@@ -3,6 +3,13 @@ from .models import Goal
 from django.http import HttpResponseRedirect
 
 # Create your views here.
+def index(request):
+    num_goals = Goal.objects.all().count()
+    context = {
+        'num_goals': num_goals
+    }
+    return render(request, 'index.html', context)
+
 def goal_list(request):
     goal = Goal.objects.all()
     context = {
