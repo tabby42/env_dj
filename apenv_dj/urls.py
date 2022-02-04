@@ -6,5 +6,9 @@ urlpatterns = [
     path('', index, name='index'),
     path('goals/', goal_list, name='goals'),
     path('goals/<id>/', goal_single, name='singlegoal'),
-    path('goals/<id>/delete/', goal_delete, name='deletegoal')
+    path('goals/<id>/delete/', goal_delete)
+]
+
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

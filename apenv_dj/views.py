@@ -1,19 +1,26 @@
 from django.shortcuts import render
 from .models import Goal
 from django.http import HttpResponseRedirect
+from django.core.paginator import Paginator
 
 # Create your views here.
 def index(request):
     num_goals = Goal.objects.all().count()
+    num_visits = request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits + 1
     context = {
-        'num_goals': num_goals
+        'num_goals': num_goals,
+        'num_visits': num_visits
     }
     return render(request, 'index.html', context)
 
 def goal_list(request):
     goal = Goal.objects.all()
+    paginator = Paginator(goal, 2)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     context = {
-        'goal_list': goal
+        'page_obj': page_obj
     }
     return render(request, 'goal/goal_list.html', context )
 
