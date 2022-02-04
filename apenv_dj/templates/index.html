@@ -1,11 +1,17 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Learning Goals</h1>
-  <p>Welcome to LocalLibrary, a website developed by <em>Mozilla Developer Network</em>!</p>
-  <h2>Dynamic content</h2>
-  <p>Number of goals:</p>
-  <ul>
-    <li><strong>Goals:</strong> {{ num_goals }}</li>
-  </ul>
+    <header>
+        <h1>Learning<span>Goals</span></h1>
+        <h2>Keep track of your online education</h2>
+    </header>
+    <section class="todo-list">
+        <h2>Your Goals</h2>
+        <p>Current number of goals:</p>
+        <p><a href="{% url 'goals' %}">View your goals</a></p>
+        <ul>
+            <li><strong>Goals:</strong> {{ num_goals }}</li>
+        </ul>
+        <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+    </section>
 {% endblock %}
