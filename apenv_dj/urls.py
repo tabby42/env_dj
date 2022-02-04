@@ -9,6 +9,3 @@ urlpatterns = [
     path('goals/<id>/delete/', goal_delete)
 ]
 
-urlpatterns += [
-    path('accounts/', include('django.contrib.auth.urls')),
-]
