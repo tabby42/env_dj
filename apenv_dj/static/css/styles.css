@@ -3,3 +3,92 @@
     padding: 0;
     list-style: none;
 }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background:#acb7c1;
+    font-size: 14px;
+    padding: 100px 50px;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 700;
+    color: #163556;
+    font-size: 2.5em;
+}
+
+h1 span {
+    color: #fff;
+}
+
+h2 {
+    text-align: center;
+    color: #163556;
+    font-weight: 400;
+}
+
+.form,
+.todo-list {
+    text-align: center;
+}
+
+.form input {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    width: 50%;
+    padding: 10px;
+    color: #fff;
+}
+
+::-webkit-input-placeholder{
+    color: #fff;
+}
+
+.todo-list ul {
+    text-align: left;
+    width: 50%;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.task {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    transition: all 0.3s ease;
+}
+
+.task:hover,
+.task:focus {
+    background: rgba(0,0,0,0.2);
+    color: #fff;
+    cursor: pointer;
+}
+
+.task span {
+    opacity: 0;
+    color: #163556;
+    transition: all 0.3s ease;
+    float: right;
+    font-size: 20px;
+}
+
+.task:hover span,
+.task:focus span {
+    opacity: 1;
+}
+
+.task span:hover,
+.task span:focus {
+    opacity: 1;
+    color: #c0392b;
+}
+.done {
+    text-decoration: line-through;
+    color: #8f9498;
+}
