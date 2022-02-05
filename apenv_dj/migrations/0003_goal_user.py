@@ -9,12 +9,12 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('apenv_dj', '0002_goal_goal_url_goal_is_completed_goal_is_started'),
+        ('apenv_dj', '0002_sunny_day_sunny_day_url_sunny_day_is_completed_sunny_day_is_started'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='goal',
+            model_name='sunny_day',
             name='user',
             field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL),
         ),

@@ -1,1 +1,1 @@
-Goals App with Django
+Sunshines App with Django

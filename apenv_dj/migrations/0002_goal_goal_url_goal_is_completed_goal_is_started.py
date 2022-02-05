@@ -11,17 +11,17 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='goal',
-            name='goal_url',
+            model_name='sunny_day',
+            name='sunny_day_url',
             field=models.URLField(blank=True),
         ),
         migrations.AddField(
-            model_name='goal',
+            model_name='sunny_day',
             name='is_completed',
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='goal',
+            model_name='sunny_day',
             name='is_started',
             field=models.BooleanField(default=False),
         ),

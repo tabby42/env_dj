@@ -3,7 +3,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
-class createGoalForm(forms.Form):
+class createSunshineForm(forms.Form):
     reminder_date = forms.DateField(help_text="Enter a date", label_suffix='')
     reminder_time = forms.TimeField(label_suffix='')
 

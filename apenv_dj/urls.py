@@ -1,15 +1,13 @@
 from django.urls import path
-from .views import goal_delete, goal_list, goal_single, index, remind
+from .views import sunny_day_delete, sunny_day_list, sunny_day_single, index
 
 
 urlpatterns = [
     path('', index, name='index'),
-    path('goals/', goal_list, name='goals'),
-    path('goals/<int:id>/', goal_single, name='singlegoal'),
-    path('goals/<int:id>/delete/', goal_delete)
+    path('sunny_days/', sunny_day_list, name='sunny_days'),
+    path('sunny_days/<int:id>/', sunny_day_single, name='singlesunny_day'),
+    path('sunny_days/<int:id>/delete/', sunny_day_delete)
 ]
 
-urlpatterns += [
-    path('goals/<int:id>/remind/', remind, name='remind'),
-]
+
 

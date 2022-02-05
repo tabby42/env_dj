@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% block title %}<title>Goals</title>{% endblock %}
+  {% block title %}<title>Sunshines</title>{% endblock %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -21,7 +21,7 @@
           <li><a href="{% url 'index' %}">Home</a></li>
           {% if user.is_authenticated %}
             <li>User: {{ user.get_username }}</li>
-            <li><a href="{% url 'my-borrowed' %}">My Goals</a></li>
+            <li><a href="{% url 'my-borrowed' %}">My Sunshines</a></li>
             <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
           {% else %}
             <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>

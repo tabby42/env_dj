@@ -1,15 +1,15 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <h1>Goals</h1>
+    <h1>Sunshines</h1>
     {% if page_obj %}
     <ul>
-        {% for goal in page_obj %}
-            <li><a href="{% url 'singlegoal' goal.id %}">{{ goal.title }}</a></li>
+        {% for sunny_day in page_obj %}
+            <li><a href="{% url 'singlesunny_day' sunny_day.id %}">{{ sunny_day.title }}</a></li>
         {% endfor %}
     </ul>
     {% else %}
-        <p>Currently no goals</p>
+        <p>Currently no sunny_days</p>
     {% endif %}
 
     <div class="pagination">

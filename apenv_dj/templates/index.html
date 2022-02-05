@@ -2,15 +2,15 @@
 
 {% block content %}
     <header>
-        <h1>Learning<span>Goals</span></h1>
-        <h2>Keep track of your online education</h2>
+        <h1>Sunshine<span>Diary</span></h1>
+        <h2>Grounding into Gratitude</h2>
     </header>
     <section class="todo-list">
-        <h2>Your Goals</h2>
-        <p>Current number of goals:</p>
-        <p><a href="{% url 'goals' %}">View your goals</a></p>
+        <h2>Your Sunshine days</h2>
+        <p>Count:</p>
+        <p><a href="{% url 'sunny_days' %}">View your sunshine days</a></p>
         <ul>
-            <li><strong>Goals:</strong> {{ num_goals }}</li>
+            <li><strong>Sunshine days:</strong> {{ num_sunny_days }}</li>
         </ul>
         <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
     </section>
