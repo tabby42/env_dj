@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Goal
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -14,8 +15,9 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
+@login_required
 def goal_list(request):
-    goal = Goal.objects.all()
+    goal = Goal.objects.filter(user=request.user)
     paginator = Paginator(goal, 2)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
