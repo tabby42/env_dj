@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block content %} 
+
+<!--Register--> 
+	<h1>Sign<span>Up</span></h1>
+	<section class="todo-list">
+		<div class="col-md-6 form-col">
+			<form method="POST">
+				{% csrf_token %}
+				{{ signup_form.as_ul }}               
+				<input class="btn btn-primary" type="submit" value="Sign Up">
+			</form>
+		</div>
+	</section>
+
+{% endblock %}

@@ -3,14 +3,19 @@
 {% block content %}
     <h1>Sunny<span>Days</span></h1>
     <section class="todo-list">
+        <a href="{% url 'sunshine-create' %}" class="add"> Add new day</a>
         {% if page_obj %}
         {% for sunny_day in page_obj %}
-            <ul>
-                <h3>{{ sunny_day.date }}</h3>
-                <li>{{ sunny_day.sunbeam_1 }}</li>
-                <li>{{ sunny_day.sunbeam_2 }}</li>
-                <li>{{ sunny_day.sunbeam_3 }}</li>
-            </ul>
+            <article>
+                <a href="{% url 'sunshine-update' pk=sunny_day.id %}" class="edit"> Edit</a>
+                <a href="{% url 'sunshine-delete' pk=sunny_day.id %}" class="delete">Delete</a>
+                <ul>
+                    <h3>{{ sunny_day.date }}</h3>
+                    <li><span>Sunbeam #1  </span>{{ sunny_day.sunbeam_1 }}</li>
+                    <li><span>Sunbeam #1  </span>{{ sunny_day.sunbeam_2 }}</li>
+                    <li><span>Sunbeam #1  </span>{{ sunny_day.sunbeam_3 }}</li>
+                </ul>
+            </article>
         {% endfor %}
         {% else %}
             <p>Currently no sunny_days</p>

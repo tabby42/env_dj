@@ -16,18 +16,24 @@ h1 {
     font-weight: 700;
     color: #FFBF00;
     font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-h1 span {
-    color: #000;
+    margin-bottom: 5px;
 }
 
 h2 {
     text-align: center;
-    color: ##FFBF00;
-    font-weight: 400;
-    font-size: 1.2rem;
+    color: #FFBF00;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+h1 span, h2 span {
+    color: #000;
+}
+
+header h2 {
+    color: #000;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
 }
 
 h3 {
@@ -36,20 +42,73 @@ h3 {
     font-weight: 700;
 }
 
+textarea {
+    max-height: 100px;
+}
+
+article {
+    position: relative;
+}
+
+ul {
+    list-style-type: none;
+}
+
 .form,
 .todo-list {
     text-align: center;
 }
 
-.form input {
+input, textarea {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid #000;
-    width: 50%;
+    background: none;
+    border: 1px dotted #000;
+    width: 100%;
     padding: 10px;
     color: #000;
+    display: block;
+}
+
+label[for="id_is_completed"] {
+    display: inline;
+ }
+
+input[type="checkbox"] {
+    display: inline;
+    width: 10%;
+}
+
+form {
+    list-style-type: none;
+    margin: 0 auto;
+    padding-top: 35px;
+}
+
+.form-col form  li {
+    padding-bottom: 30px;
+}
+
+.form-col {
+    margin: 0 auto;
+}
+
+.form-col p {
+    text-align: left;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px dotted #000;
+    border-left: 0;
+    border-right: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    font-weight: 700;
 }
 
 ::-webkit-input-placeholder{
@@ -61,6 +120,86 @@ h3 {
     width: 50%;
     margin: 0 auto;
     padding: 30px;
+    border-top: 1px dotted #000;
+    margin-top: 20px;
+    padding-bottom: 0;
+}
+
+.helptext {
+    text-align: left;
+}
+
+.todo-list .helptext ul {
+    width: 100%;
+    border: 0;
+}
+
+.todo-list ul li {
+    padding: 5px 0px 5px 0px;
+}
+
+.todo-list ul li span{
+    display: block;
+    font-weight: 700;
+}
+
+a.edit, a.delete {
+    position: absolute;
+    right: 235px;
+    top: 40px;
+    margin: 24px;
+    background: #FFBF00;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #fff;
+    font-weight: 700;
+}
+
+a.delete {
+    top: 3px;
+}
+
+a.edit {
+    right: 315px;
+    top: 3px;
+}
+
+a.add {
+    margin: 24px;
+    background: #FFBF00;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #fff;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.btn_sd {
+    padding: 15px;
+    color: #fff;
+    background: #000;
+    font-weight: 400;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+.btn-sd-small {.
+    font-size: 0.9rem;
+    padding: 10px;
+    text-align: center;
+}
+
+.pagination {
+    text-align: left;
+    width: 50%;
+    margin: 0 auto;
+    padding: 30px;
+    border-top: 1px dotted #000;
+    margin-top: 20px;
 }
 
 .task {

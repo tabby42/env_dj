@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h2>It's a new <span>Day,</span> it's a new <span>Dawn ...</span></h2>
+    <section class="todo-list">
+      {{ context }}
+      <div class="col-md-6 form-col">
+        <form action="" method="post">
+          {% csrf_token %}
+          <table>
+          {{ form.as_ul }}
+          </table>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </section>
+{% endblock %}

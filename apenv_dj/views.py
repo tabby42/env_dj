@@ -1,10 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Sunshine
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.contrib.auth.models import User
+import datetime
+from django import forms
+#from .widgets import BootstrapDateTimePickerInput
+from .forms import NewUserForm
+from django.contrib.auth import login
 
-# Create your views here.
 def index(request):
     num_sunny_days = Sunshine.objects.all().count()
     num_visits = request.session.get('num_visits', 0)
@@ -33,7 +40,54 @@ def sunny_day_single(request, id):
     }
     return render(request, 'sunny_day/sunny_day_single.html', context)
 
-def sunny_day_delete(request, id):
-    sunny_day_del = Sunshine.objects.get(id = id)
-    sunny_day_del.delete()
-    return HttpResponseRedirect('/sunny_days/')
+def signup_request(request):
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            #messages.success(request, "Registration successful." )
+            return redirect("index")
+        #messages.error(request, "Unsuccessful registration. Invalid information.")
+    form = NewUserForm()
+    return render (request, "sunny_day/signup.html", context={"signup_form":form})
+
+class SunshineCreateView(CreateView):
+    model = Sunshine
+    fields = ['date', 'sunbeam_1', 'sunbeam_2', 'sunbeam_3', 'is_completed']
+    success_url = reverse_lazy('sunny_days')
+
+    def form_valid(self, form):
+        sunshine = form.save(commit=False)
+        sunshine.user = User.objects.get(username=self.request.user) 
+        sunshine.save()
+        return super(SunshineCreateView, self).form_valid(form)
+
+    def get_form(self, form_class=None):
+        if form_class is None: 
+            form_class = self.get_form_class()
+        form = super(SunshineCreateView, self).get_form(form_class)
+        input_formats=['%d.%m.%Y']
+        form.fields['date'].widget = forms.DateInput(format='%d.%m.%Y')
+        return form
+
+    #def get_form(self, form_class):
+        #form = super(CreateView, self).get_form(form_class)
+        #input_formats=['%d/%m/%Y %H:%M']
+        #form.fields['date'].widget = BootstrapDateTimePickerInput()
+        #return form
+
+class SunshineUpdateView(UpdateView):
+    model = Sunshine
+    fields = ['date', 'sunbeam_1', 'sunbeam_2', 'sunbeam_3', 'is_completed']   
+    success_url = reverse_lazy('sunny_days')
+
+    def form_valid(self, form):
+        sunshine = form.save(commit=False)
+        sunshine.user = User.objects.get(username=self.request.user) 
+        sunshine.save()
+        return super(SunshineUpdateView, self).form_valid(form)
+
+class SunshineDeleteView(DeleteView):
+    model = Sunshine
+    success_url = reverse_lazy('sunny_days')
