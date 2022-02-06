@@ -71,12 +71,6 @@ class SunshineCreateView(CreateView):
         form.fields['date'].widget = forms.DateInput(format='%d.%m.%Y')
         return form
 
-    #def get_form(self, form_class):
-        #form = super(CreateView, self).get_form(form_class)
-        #input_formats=['%d/%m/%Y %H:%M']
-        #form.fields['date'].widget = BootstrapDateTimePickerInput()
-        #return form
-
 class SunshineUpdateView(UpdateView):
     model = Sunshine
     fields = ['date', 'sunbeam_1', 'sunbeam_2', 'sunbeam_3', 'is_completed']   

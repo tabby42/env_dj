@@ -14,6 +14,13 @@
                     <li><span>Sunbeam #1  </span>{{ sunny_day.sunbeam_1 }}</li>
                     <li><span>Sunbeam #1  </span>{{ sunny_day.sunbeam_2 }}</li>
                     <li><span>Sunbeam #1  </span>{{ sunny_day.sunbeam_3 }}</li>
+                    <li class="completed">
+                        {% if sunny_day.is_completed %}
+                            <span class="alert alert-success">DONE!</span>
+                        {% else %}
+                            <span class="alert alert-danger">NOT COMPLETED</span>
+                        {% endif %}
+                    </li>
                 </ul>
             </article>
         {% endfor %}

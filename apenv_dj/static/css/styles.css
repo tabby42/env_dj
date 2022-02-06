@@ -4,6 +4,9 @@
     list-style: none;
 }
 
+div.navside {
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background:#fff;
@@ -89,6 +92,14 @@ form {
     padding-bottom: 30px;
 }
 
+.form-col.signup-form form li {
+    padding-bottom: 5px;
+}
+
+.form-col.signup-form .btn_sd {
+    margin-top: 30px;
+}
+
 .form-col {
     margin: 0 auto;
 }
@@ -132,6 +143,8 @@ label {
 .todo-list .helptext ul {
     width: 100%;
     border: 0;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .todo-list ul li {
@@ -191,6 +204,29 @@ a.add {
     font-size: 0.9rem;
     padding: 10px;
     text-align: center;
+}
+
+span.alert {
+    border: 0;
+    border-radius: 0;
+    color: #fff;
+    width: 110px;
+    text-align: center;
+    font-weight: 400 !important;
+    font-size: 0.7rem;
+    margin-bottom: 0;
+    padding: 5px;
+}
+
+span.alert.alert-success {
+    color: #000;
+    background: none;
+    border: 1px dotted #000;
+}
+
+span.alert.alert-danger {
+    background-color: #adb5bd;
+    width: 135px;
 }
 
 .pagination {
