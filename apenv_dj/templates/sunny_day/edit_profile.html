@@ -2,21 +2,22 @@
 
 {% block content %} 
 
-<!--Register--> 
-	<h1>Sign<span>Up</span></h1>
+<!--Edit User Info--> 
+
+	<h1>Edit<span>Profile</span></h1>
 	<section class="todo-list">
-		{% if messages %}
+        {% if messages %}
         <ul class="messages">
             {% for message in messages %}
             <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
             {% endfor %}
         </ul>
         {% endif %}
-		<div class="col-md-6 form-col signup-form">
+		<div class="col-md-6 form-col signup-form edit-form">
 			<form method="POST">
 				{% csrf_token %}
-				{{ signup_form.as_ul }}               
-				<input class="btn_sd" type="submit" value="Sign Up">
+				{{ edit_form.as_ul }}               
+				<input class="btn_sd" type="submit" value="SAVE">
 			</form>
 		</div>
 	</section>

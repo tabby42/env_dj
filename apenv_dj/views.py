@@ -1,3 +1,4 @@
+import email
 from django.shortcuts import render, redirect
 from .models import Sunshine
 from django.http import HttpResponseRedirect
@@ -9,8 +10,10 @@ from django.contrib.auth.models import User
 import datetime
 from django import forms
 #from .widgets import BootstrapDateTimePickerInput
-from .forms import NewUserForm
+from .forms import NewUserForm, UpdateUserForm
 from django.contrib.auth import login
+from django.shortcuts import get_object_or_404
+from django.contrib import messages
 
 def index(request):
     num_sunny_days = Sunshine.objects.all().count()
@@ -46,11 +49,31 @@ def signup_request(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            #messages.success(request, "Registration successful." )
+            messages.success(request, "Registration successful." )
             return redirect("index")
-        #messages.error(request, "Unsuccessful registration. Invalid information.")
+        messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm()
     return render (request, "sunny_day/signup.html", context={"signup_form":form})
+    
+@login_required
+def edit_request(request, id):
+    if request.method == 'POST':
+        form = UpdateUserForm(data=request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Profile successfully updated." )
+            return redirect('edit', id=id)
+        messages.error(request, "Update was unsuccessful. Invalid information.")
+    item = get_object_or_404(User, id=id)
+    form = UpdateUserForm(
+        initial={
+            'id': item.id,
+            'username': item.username, 
+            'first_name': item.first_name,
+            'last_name': item.last_name,
+            'email': item.email
+    })
+    return render(request, 'sunny_day/edit_profile.html', context={'edit_form': form})
 
 class SunshineCreateView(CreateView):
     model = Sunshine

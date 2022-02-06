@@ -4,7 +4,6 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-
 class NewUserForm(UserCreationForm):
 	email = forms.EmailField(required=True, help_text='Enter a valid e-mail address')
 	class Meta:
@@ -17,6 +16,12 @@ class NewUserForm(UserCreationForm):
 		if commit:
 			user.save()
 		return user
+
+class UpdateUserForm(forms.ModelForm):
+	class Meta:
+		model = User
+		fields = ['username', 'first_name', 'last_name', 'email']
+
 
 """ class createSunshineForm(forms.Form):
     reminder_date = forms.DateField(help_text="Enter a date", label_suffix='')

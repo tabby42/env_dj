@@ -140,6 +140,10 @@ label {
     text-align: left;
 }
 
+.edit-form .helptext {
+    display: none;
+}
+
 .todo-list .helptext ul {
     width: 100%;
     border: 0;
