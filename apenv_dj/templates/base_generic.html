@@ -18,12 +18,12 @@
       <div class="col-lg-2 navside">
       {% block sidebar %}
         <ul class="sidebar-nav">
-          <li><a href="{% url 'index' %}">HOME</a></li>
+          <li><a href="{% url 'index' %}" class="sidebar-item sidebar-link">HOME</a></li>
           {% if user.is_authenticated %}
-            <li>Welcome, {{ user.first_name }}!</li>
-            <li>Logged in as: {{ user.get_username }}</li>
-            <li><a href="{% url 'edit' id=user.id %}" class="btn_sd btn-sd-small">EDIT PROFILE</a></li>
-            <li><a href="{% url 'sunny_days' %}" class="btn_sd btn-sd-small">MY DIARY</a></li>
+            <li class="sidebar-item">WELCOME, {{ user.first_name|upper }}!</li>
+            <li class="sidebar-item">LOGGED IN AS: {{ user.get_username|upper }}</li>
+            <li><a href="{% url 'edit' id=user.id %}" class="sidebar-item sidebar-link">EDIT PROFILE</a></li>
+            <li><a href="{% url 'sunny_days' %}" class="sidebar-item sidebar-link">MY DIARY</a></li>
             <li><a href="{% url 'logout'%}?next={{request.path}}" class="btn_sd btn-sd-small">SIGN OUT</a></li>
           {% else %}
             {% if request.path != '/accounts/login/' and request.path != '/accounts/password_reset/' and request.path != '/sunny_days/signup/' %}

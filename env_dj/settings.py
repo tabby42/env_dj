@@ -130,6 +130,6 @@ LOGOUT_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-DATE_INPUT_FORMATS = ['%b %d %Y']
+DATE_INPUT_FORMATS = ['%d.%m.%Y']
 USE_L10N = False
 

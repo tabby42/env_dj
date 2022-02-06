@@ -11,9 +11,9 @@
                 <a href="{% url 'sunshine-delete' pk=sunny_day.id %}" class="delete">Delete</a>
                 <ul>
                     <h3>{{ sunny_day.date }}</h3>
-                    <li><span>Sunbeam #1  </span>{{ sunny_day.sunbeam_1 }}</li>
-                    <li><span>Sunbeam #1  </span>{{ sunny_day.sunbeam_2 }}</li>
-                    <li><span>Sunbeam #1  </span>{{ sunny_day.sunbeam_3 }}</li>
+                    <li><span>Good Thing #1  </span>{{ sunny_day.sunbeam_1 }}</li>
+                    <li><span>Good Thing #1  </span>{{ sunny_day.sunbeam_2 }}</li>
+                    <li><span>Good Thing #1  </span>{{ sunny_day.sunbeam_3 }}</li>
                     <li class="completed">
                         {% if sunny_day.is_completed %}
                             <span class="alert alert-success">DONE!</span>

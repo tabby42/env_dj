@@ -28,7 +28,7 @@ def index(request):
 @login_required
 def sunny_day_list(request):
     sunny_day = Sunshine.objects.filter(user=request.user)
-    paginator = Paginator(sunny_day, 2)
+    paginator = Paginator(sunny_day, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
@@ -50,11 +50,11 @@ def signup_request(request):
             user = form.save()
             login(request, user)
             messages.success(request, "Registration successful." )
-            return redirect("index")
+            return redirect("sunny_days")
         messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm()
     return render (request, "sunny_day/signup.html", context={"signup_form":form})
-    
+
 @login_required
 def edit_request(request, id):
     if request.method == 'POST':
